@@ -6,11 +6,11 @@ const app = express();
 
 // const port = 8000;
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var urlDB = 'mongodb://pioneer:pio159@ds259210.mlab.com:59210/teeny';
+var urlDB = 'mongodb://pioneer:pio159@ds117834.mlab.com:17834/dubor';
+
 
 //connect to db
 MongoClient.connect(urlDB, function (err, db) {
