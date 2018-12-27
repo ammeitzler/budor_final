@@ -23,7 +23,7 @@ module.exports = function(app, db) {
   });
 
   app.post('/media', (req, res) => {
-    const media_data = { title: req.body.title, message: req.body.message };
+    const media_data = { values: req.body.values };
 
     db.collection('rasp_data').insert(media_data, (err, result) => {
       if (err) { 
