@@ -20,9 +20,6 @@ MongoClient.connect(urlDB, function (err, db) {
     console.log('Connection established to ', urlDB);
   }
 
-  // app.listen(port, function(){
-  //   console.log("Listening on port: " + port);
-  // });
   require('./app/routes')(app, db);
 
 });
