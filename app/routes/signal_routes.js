@@ -9,6 +9,13 @@ module.exports = function(app, db) {
           res.json(data);
       })
     });
+    db.collection("onoff2_data").count().then((count) => {
+        console.log(count);
+        if(count > 2000) {
+          db.collection("onoff2_data").remove({})
+          console.log("removed")
+        }
+    });
   });
 
   app.delete('/signal/:id', (req, res) => {

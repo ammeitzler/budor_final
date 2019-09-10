@@ -4,13 +4,10 @@ const bodyParser = require('body-parser');
 const db = require('./config/db');
 const app = express();
 
-// const port = 8000;
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var urlDB = 'mongodb://pioneer:pio159@ds117834.mlab.com:17834/dubor';
-
 
 //connect to db
 MongoClient.connect(urlDB, function (err, db) {
@@ -19,10 +16,23 @@ MongoClient.connect(urlDB, function (err, db) {
   } else {
     console.log('Connection established to ', urlDB);
   }
-
   require('./app/routes')(app, db);
-
 });
+
+
+// var sqlite3 = require('sqlite3').verbose();
+// var path = require('path');
+// var dbPath = path.resolve(__dirname, 'mydb.db')
+// var db = new sqlite3.Database(dbPath);
+
+// db.serialize(function() {
+//     db.run("CREATE TABLE IF NOT EXISTS rasp2_data (value INTEGER)");
+//     db.run("CREATE TABLE IF NOT EXISTS onoff2_data (value INTEGER)");
+//     // db.run("INSERT INTO onoff2_data (key, value) VALUES (?, ?)", "counter", 0);
+//    	require('./app/routes')(app, db);
+
+// });
+
 
 app.use(express.static(__dirname));
 app.get('/', function(req, res) {
