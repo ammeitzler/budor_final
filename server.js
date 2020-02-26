@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const db = require('./config/db');
 const app = express();
 
+
+// const port = 8000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -32,7 +34,6 @@ MongoClient.connect(urlDB, function (err, db) {
 //    	require('./app/routes')(app, db);
 
 // });
-
 
 app.use(express.static(__dirname));
 app.get('/', function(req, res) {

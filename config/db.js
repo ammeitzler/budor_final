@@ -1,3 +1,3 @@
-// module.exports = {
-//   url : "mongodb://pioneer:pio159@ds117834.mlab.com:17834/dubor"
-// };
+module.exports = {
+  url : "mongodb://pioneer:pio159@ds117834.mlab.com:17834/dubor"
+};
