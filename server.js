@@ -39,4 +39,4 @@ app.use(express.static(__dirname));
 app.get('/', function(req, res) {
     res.sendfile('index.html', {root: __dirname })
 });
-const server = app.listen(process.env.PORT || 80);
+const server = app.listen(process.env.PORT || 8000);

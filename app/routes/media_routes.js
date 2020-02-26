@@ -9,10 +9,8 @@ module.exports = function(app, db) {
       })
     });
     db.collection("rasp2_data").count().then((count) => {
-        console.log(count);
         if(count > 2000) {
           db.collection("rasp2_data").remove({})
-          console.log("removed")
         }
     });
   });
@@ -30,9 +28,7 @@ module.exports = function(app, db) {
   });
 
   app.post('/media', (req, res) => {
-    console.log(req.body)
     const media_data = { values: req.body.values };
-
     db.collection('rasp2_data').insert(media_data, (err, result) => {
       if (err) { 
         res.send({ 'error': 'An error has occurred' }); 
