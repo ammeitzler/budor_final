@@ -4,21 +4,19 @@ const bodyParser = require('body-parser');
 const db = require('./config/db');
 const app = express();
 
-
-// const port = 8000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var urlDB = 'mongodb://pioneer:pio159@ds117834.mlab.com:17834/dubor';
+// var urlDB = 'mongodb://pioneer:pio159@ds117834.mlab.com:17834/dubor';
 
 //connect to db
-MongoClient.connect(urlDB, function (err, db) {
+MongoClient.connect(db.url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error: ', err);
   } else {
-    console.log('Connection established to ', urlDB);
+    console.log('Connection established to ', db.url);
   }
-  require('./app/routes')(app, db);
+  require('./app/routes')(app, db.url);
 });
 
 
