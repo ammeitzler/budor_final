@@ -1,6 +1,18 @@
+Simple NodeJS/Express APP using mongodb for Dora Budor ash and dust installations
+By Angeline Meitzler, @angiefromspace
 
+## Run
 
-#Endpoints
-1. /media
-2. /signal
-3. /ash
+    node server.js
+
+## Documentation
+
+### Endpoints
+
+#### /ash
+
+    get, post, delete
+
+#### /media
+
+    get, post, delete
